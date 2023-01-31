@@ -1,0 +1,78 @@
+.dropdown-nav__item {
+    padding: 20px 10px;
+    border-bottom: solid 1px #303030;
+}
+
+.dropdown-contact__city, 
+.dropdown-contact__phone {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 10px;
+}
+
+.dropdown-nav__search {
+    margin: 0 10px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown__contact,
+.dropdown__nav {
+    margin-bottom: 20px;
+}
+
+.dropdown-search__input {
+    width: 100%
+}
+
+
+.dropdown__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dropdown-burger__wrapper {
+    position: static;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 12px;
+    z-index: 3;
+
+}
+
+.dropdown {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(-50%);
+    transition: 0.3s  all ease-in-out;
+
+    padding: 30px 0 30px 0;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+    overflow-y: scroll;
+}
+
+.dropdown.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    transform: translateX(0);
+    transition: 0.3s opacity transform ease-in-out;
+
+    padding: 30px 0 30px 0;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+    overflow-y: scroll;
+}

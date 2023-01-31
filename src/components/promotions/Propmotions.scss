@@ -1,0 +1,175 @@
+.promotions {
+    display: flex;
+    gap: 20px;
+}
+
+.promotions__item {
+    width: 100%;
+    height: 290px;
+    display: flex;
+    background-color: #F8F8F8;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+        background-image: image-set(
+          url("../../../public/promotion/earring.png") 1x,
+          url("../../../public/promotion/earring@2x.png") 2x);
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.promotions__sale {
+    padding: 10px 26px;
+    background-color: #43807F; 
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 160%;
+    color: #FFFFFF;
+    max-width: 194px;
+    white-space: nowrap;
+}
+
+
+
+.promotions__item:nth-child(1) {
+    background-image: image-set(
+        url("../../../public/promotion/earring.png") 1x,
+        url("../../../public/promotion/earring@2x.png") 2x);
+}
+.promotions__item:nth-child(2) {
+    background-image: image-set(
+        url("../../../public/promotion/ring.png") 1x,
+        url("../../../public/promotion/ring@2x.png") 2x);
+        background-size: 55%;
+
+}
+
+.promotions__item:nth-child(2) .promotions__sale {
+    background-color: #E24B33;
+}
+
+.promotions__item:nth-child(3) {
+    background-image: image-set(
+        url("../../../public/promotion/engagement_ring.png") 1x,
+        url("../../../public/promotion/engagement_ring@2x.png") 2x);
+        background-size: 55%;
+}
+
+.promotions__item:nth-child(3) .promotions__sale {
+    background-color: #E1A661;
+}
+
+.promotions__inner {
+    align-self: center;
+    flex-basis: 50%;
+}
+
+.promotions__title {
+    margin-left: 26px;
+    margin-bottom: 19px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 160%;
+    text-transform: uppercase;
+    color: #303030;
+}
+
+
+
+    
+.promotions__sale--huge {
+    font-size: 36px;
+}
+
+
+
+
+
+.promotions__icon {
+    filter: drop-shadow(-15px 4px 16px rgba(0, 0, 0, 0.1));
+    object-fit: cover;
+}
+
+@media (max-width: 1450px) {
+
+    .promotions__title {
+        margin-left: 18px;
+        margin-bottom: 14px;
+        line-height: 130%;
+        font-size: 15px;
+    }
+
+.promotions__sale {
+    padding: 8px 18px;
+    font-size: 17px;
+    line-height: 112%;
+    max-width: 136px;
+}
+
+    
+.promotions__sale--huge {
+    font-size: 25px;
+}
+
+
+}
+
+@media (max-width: 900px) {
+
+    .promotions__inner {
+        position: relative;
+        z-index: 2;
+    }
+
+    .promotions__item {
+        padding: 20px 0px;
+    }
+
+}
+
+@media (max-width: 800px) {
+
+    .promotions {
+        flex-direction: column;
+    }
+
+    .promotions__item {
+        height: 200px;
+         gap: 10px;
+    }
+
+    .promotions__item:nth-child(1),
+    .promotions__item:nth-child(2),
+    .promotions__item:nth-child(3) {
+        background-size: contain;
+    }
+    
+
+
+
+    .promotions__icon {
+        display: block; 
+       height: 150px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .promotions__item {
+        justify-content: flex-start;
+        flex-direction: row;
+         overflow: visible; 
+         max-height: none;
+         gap: 10px;
+    }
+
+    .promotions__icon {
+        display: block; 
+       height: 150px;
+    }
+
+
+
+}

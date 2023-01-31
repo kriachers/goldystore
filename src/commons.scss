@@ -1,0 +1,207 @@
+
+@font-face {
+    font-family: 'Prata';
+    font-weight: 400;
+    src: url(../public/fonts/Prata-Regular.woff2);
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-weight: 400;
+    src: url(../public/fonts/Inter-Regular.woff2);
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-weight: 500;
+    src: url(../public/fonts/Inter-Medium.woff2);
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-weight: 400;
+    src: url(../public/fonts/Inter-Regular.woff2);
+}
+
+body {
+    font-family: 'Inter';
+    font-weight: 400;
+}
+
+
+
+button {
+    font-family: 'Inter';
+    font-weight: 400;
+}
+
+
+p, li, a {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 160%;
+    color: #303030;
+
+}
+
+h1 {
+    font-family: 'Prata';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 100%;
+    color: #303030;
+
+}
+
+
+h2 {
+    margin-bottom: 40px;
+    font-family: 'Prata';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 100%;
+    color: #303030;
+}
+
+h3 {
+    font-family: 'Prata';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 100%;
+    color: #303030;
+
+}
+
+h4 {
+    font-family: 'Prata';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 100%;
+    color: #303030;
+
+}
+
+.section {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1300px;
+    margin-bottom: 120px;
+}
+
+.container {
+    padding: 0px 310px;
+}
+
+
+.svg-icon {
+    cursor: pointer;
+}
+
+.svg-icon:hover {
+    fill: #979797;
+}
+
+@media (max-width: 1850px) {
+    .container {
+        padding-left: 200px;
+        padding-right: 200px;
+    }
+}
+
+@media (max-width: 1650px) {
+    .container {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .container {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 1000px) {
+    h1 {
+        font-size: 35px;
+    }
+
+    h2 {
+        margin-bottom: 30px;
+        font-size: 28px;
+        line-height: 30px;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        margin-bottom: 28px;
+        font-size: 28px;
+        line-height: 28px;
+    }
+
+    h3 {
+    font-size: 28px;
+    }
+
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .section {
+        margin-bottom: 80px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 20px;
+    }
+
+    h2 {
+    font-size: 25px;
+    }
+
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .section {
+        margin-bottom: 50px;
+    }
+
+}
+
+@media (max-width: 350px) {
+
+        .container {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+}
+
+
+

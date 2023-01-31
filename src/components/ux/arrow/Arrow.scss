@@ -1,0 +1,43 @@
+.arrow {
+    cursor: pointer;
+    padding: 17.5px 18.5px;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 1px solid #303030;
+}
+ 
+
+.arrow-left { 
+    transform: rotate(-180deg);
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+.arrow:hover {
+        background-color: #F5F5F5;
+   
+}
+
+.arrow:hover .arrow-left { 
+    transform: rotate(-180deg) translateX(8px);
+    transition: all 0.3s ease-in-out;
+}
+
+
+.arrow:hover .arrow-right {
+    transform: translateX(8px);
+    transition: all 0.3s ease-in-out;
+}
+
+.arrow-right {
+    transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 650px) {
+    .arrow {
+        cursor: pointer;
+        padding: 10.5px 11.5px;
+    }
+
+}

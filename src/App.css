@@ -1,38 +1,19 @@
-.App {
-  text-align: center;
-}
+@import url(./reset.scss);
+@import url(./commons.scss);
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+@import url(./components/ux/stars/Stars.scss);
+@import url(./components/ux/price/Price.scss);
+@import url(./components/ux/arrow/Arrow.scss);
+@import url(./components/ux/button/Button.scss);
+@import url(./components/ux/dots/Dots.scss);
+@import url(./components/ux/tooltip/Tooltip.scss);
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+@import url(./components/header/Header.scss);
+@import url(./components/hero/Hero.scss);
+@import url(./components/popular/Popular.scss);
+@import url(./components/promotions/Propmotions.scss);
+@import url(./components/sale/Sale.scss);
+@import url(./components/ux/Sticker.scss);
+@import url(./components/DailyProduct/DailyProduct.scss);
+@import url(./components/articles/Articles.scss);
+@import url(./components/dropdown/Dropdown.scss);

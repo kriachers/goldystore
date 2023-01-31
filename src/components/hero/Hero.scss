@@ -1,0 +1,94 @@
+.hero {
+    position: relative;
+    padding: 12px 36px 0 126px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    background-color: #F8F8F8;
+    background-image: url(../../../public/hero/emerald.svg);
+    background-size: auto 120%;
+    background-repeat: no-repeat;
+    background-position: left -20px% top 24px;
+}
+   
+.hero-wrapper__subtitle {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 100%;
+    margin-bottom: 30px;
+}
+
+.hero-wrapper__title {
+    margin-bottom: 54px;
+}
+
+.hero__nav {
+    margin: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - (24px * 2));
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%); 
+}
+
+.hero__dots {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 24px;
+}
+
+@media (max-width: 900px) {
+
+    .hero-wrapper__subtitle {
+        margin-bottom: 16px;
+    }
+
+    .hero-wrapper__title {
+        margin-bottom: 24px;
+    }
+
+    .hero {
+        padding: 12px 26px 0 96px;
+    }
+
+    .hero__nav {
+        margin: 0 15px;
+        width: calc(100% - (15px * 2));
+    }
+
+
+}
+
+@media (max-width: 650px) {
+    .hero {
+        padding: 25px 26px 30px 70px;
+    }
+
+    .hero-wrapper__subtitle {
+        font-size: 16px;
+    }
+
+    .hero__dots {
+        bottom: 10px;
+    }
+} 
+
+@media (max-width: 420px) {
+    .hero__img {
+        display: none;
+    }
+    
+    .hero {
+        justify-content: center;
+        padding: 25px 40px 30px 40px
+    }
+
+    .hero__nav {
+        margin: 0 0px;
+        width: 100%;
+    }
+
+    
+}

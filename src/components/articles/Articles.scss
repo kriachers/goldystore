@@ -1,0 +1,30 @@
+.articles__plate {
+    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+.articles__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 40px;
+}
+
+.articles-header__title {
+    margin-bottom: 0;
+}
+
+.articles-header__more {
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #303030;
+}
+
+.articles-header__more::after {
+    content: url(../../../public/ux/arrow/long-arrow.svg);
+    right: 12px;
+    margin-left: 12px;
+}
