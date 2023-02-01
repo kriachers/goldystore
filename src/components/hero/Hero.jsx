@@ -12,7 +12,7 @@ function Hero() {
                 <Button text={'Подробнее'} class={'solid-button'}> </Button>
             </div>
             <div> 
-            <img src={process.env.PUBLIC_URL + "./hero/ring.png"} srcSet="./hero/ring@2x.png 2x" alt="" className="hero__img" />
+            <img src={process.env.PUBLIC_URL + "./hero/ring.png"} srcSet={process.env.PUBLIC_URL + "./hero/ring@2x.png 2x"} alt="" className="hero__img" />
             </div>
             <div className="hero__nav">
                 <Arrow class={'arrow-left'}></Arrow>
