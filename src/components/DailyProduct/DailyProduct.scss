@@ -305,3 +305,25 @@
     }
 
 }
+
+@media (max-width: 450px) {
+    .dailyProduct__info {
+        flex-direction: column;
+    }
+
+    .dailyProduct-info__plate {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .dailyProduct-tile__title {
+        display: none;
+    }
+
+
+        .dailyProduct-plate__tile:not(:last-child) {
+            margin: 0;
+        }
+    }

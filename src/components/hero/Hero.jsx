@@ -37,6 +37,7 @@ function Hero() {
       pagination={{ clickable: true }}
       onSlideChange={() => console.log('slide change')}
       onSwiper={(swiper) => console.log(swiper)}
+      className={'section'}
     >
 
         {
