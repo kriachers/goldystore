@@ -8,6 +8,7 @@ import {
   createBrowserRouter,
   RouterProvider,
   Route,
+  HashRouter,
   Routes,
   Link,
   BrowserRouter,
@@ -30,7 +31,7 @@ function App() {
     value={{selectedCategory, setSelectedCategory, 
     selectedSaleCategory, setSelectedSaleCategory,
     favorites, setFavorites}}>
-        <BrowserRouter>
+        <HashRouter>
         <Header/>
           <Routes>
             <Route exact path="/" element={<MainPage/>}></Route>
@@ -38,7 +39,7 @@ function App() {
             <Route exact path="/category" element={<CategoryPage/>}></Route>
             <Route exact path="/favorites" element={<FavoritesPage/>}></Route>
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </AppContext.Provider>
     </div>
   );
