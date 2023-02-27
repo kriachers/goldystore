@@ -1,0 +1,9 @@
+.categoryPage__plate {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 310px));
+    gap: 20px;
+}
+
+.categoryPage {
+    position: relative;
+}

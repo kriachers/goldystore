@@ -1,26 +1,54 @@
-import Button from "../ux/button/Button";
-import Arrow from "../ux/arrow/Arrow";
-import Dots from "../ux/dots/Dots";
+
+import { Swiper, SwiperSlide  } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper';
+import HeroItem from "./HeroItem";
 
 function Hero() { 
+
+    const heroData = [
+        {
+            title: 'Cуперскидка до -60%',
+            descr: 'На бриллианты',
+            img: './hero/ring.png',
+            imgRetina: './hero/ring@2x.png'
+        },
+        {
+            title: 'Cуперскидка до -50%',
+            descr: 'На часы',
+            img: './hero/ring.png',
+            imgRetina: './hero/ring@2x.png'
+        },
+        {
+            title: 'Cуперскидка до -30%',
+            descr: 'На серьги',
+            img: './hero/ring.png',
+            imgRetina: './hero/ring@2x.png'
+        }
+
+    ]
+
     return (
         <div className="container">
-        <section className="hero section container-bottom">
-            <div className="hero__wrapper">
-                <h4 className="hero-wrapper__subtitle">Суперскидка до 60%</h4>
-                <h1 className="hero-wrapper__title">НА БРИЛЛИАНТЫ</h1>
-                <Button text={'Подробнее'} class={'solid-button'}> </Button>
-            </div>
-            <div> 
-            <img src="./hero/ring.png" srcSet="./hero/ring@2x.png 2x" alt="" className="hero__img" />
-            </div>
-            <div className="hero__nav">
-                <Arrow class={'arrow-left'}></Arrow>
-                <Arrow class={'arrow-right'}></Arrow>
-            </div>
-            <Dots class={'hero__dots'}></Dots>
-            
-        </section>
+    <Swiper
+      modules={[Navigation, Pagination]}
+      spaceBetween={50}
+      slidesPerView={1}
+      navigation
+      pagination={{ clickable: true }}
+      onSlideChange={() => console.log('slide change')}
+      onSwiper={(swiper) => console.log(swiper)}
+    >
+
+        {
+            heroData.map((item) => {
+                return (
+                    <SwiperSlide>
+                        <HeroItem title={item.title} descr={item.descr}></HeroItem>
+                    </SwiperSlide>
+                )
+            })
+        }
+    </Swiper>
         </div>
     );
 }

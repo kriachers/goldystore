@@ -9,6 +9,11 @@ import { useState } from "react";
 function DailyProduct() {
 
     const [openTooltip, isOpenTooltip] = useState(false);
+    const [itemColor, setItemColor] = useState(0)
+    const [itemSize, setItemSize] = useState(0)
+
+    const itemColors = ['green', 'gold', 'silver', 'pink-gold']
+    const itemSizes = [16.5, 17.5, 18, 19, 20]
 
     return (
         <div className="container">
@@ -47,8 +52,8 @@ function DailyProduct() {
                         <Stars rating={4.2} class={'dailyProduct-item__stars'}></Stars>
                         <h3 className="dailyProduct-item__title">Кольцо из золота с бриллиантами</h3>
                         <p className="dailyProduct-item__vendorcode">Артикул: 1012076</p>
-                        <div className="dailyProduct-item__numbers">
-                        <Price class={'dailyProduct-item-numbers__price'} actualPrice={22000} prevousPrice={22000} saleAmount={'-45%'}></Price>
+                        <div className="dailyProduct-item__numbers"> 
+                        <Price class={'dailyProduct-item-numbers__price'} actualPrice={20000} currentPrice={22000}></Price>
                             <div className="dailyProduct-item__timer">
 
                             </div>
@@ -56,27 +61,18 @@ function DailyProduct() {
 
                         <form action="" className="dailyProduct__form">
                         <p className="dailyProduct__title dailyProduct-color__title">Цвет</p>
-                        <div className="dailyProduct__color"> 
-                            <div class="form_radio">
-                                    <input id="radio-1" type="radio" name="radio" value="1"></input>
-                                    <label for="radio-1"></label>
-                                </div>
-                                
-                                <div class="form_radio">
-                                    <input id="radio-2" type="radio" name="radio" value="2"></input>
-                                    <label for="radio-2"></label>
-                                </div>
-                                
-                                <div class="form_radio">
-                                    <input id="radio-3" type="radio" name="radio" value="3"></input>
-                                    <label for="radio-3"></label>
-                                </div>
-                                
-                                <div class="form_radio">
-                                    <input id="radio-4" type="radio" name="radio" value="4"></input>
-                                    <label for="radio-4"></label>
-                                </div>
-                        </div> 
+                        <ul className="dailyProduct__color"> 
+                        {
+                            itemColors.map((item, index) => {
+                                return (
+                                    <li 
+                                    onClick={() => setItemColor(index)}
+                                    class={`dailyProduct-color__item ${item} ${ itemColor === index ? 'active' : ''}`}>
+                                    </li>  
+                                )
+                            })
+                        }
+                        </ul> 
 
                         <div className="dailyProduct__size">
                             <div className="dailyProduct-size__wrapper">
@@ -91,48 +87,21 @@ function DailyProduct() {
                                     <Tooltip class={`'dailyProduct-info__tooltip' ${openTooltip ? 'open' : '' }`} text={'Также как существующая теория напрямую зависит от экономической целесообразности принимаемых решений.'}></Tooltip>
                                 </div>
                             </div>
-                           
-                           <div className="dailyProduct-size__forms">
-                                <div class="dailyProduct-size__form">
-                                    <input id="dailyProduct-size-form__radio-1" type="radio" name="radio" value="1"></input>
-                                    <label for="dailyProduct-size-form__radio-1">16,5</label>
-                                </div>
-                                
-                                <div class="dailyProduct-size__form">
-                                    <input id="dailyProduct-size-form__radio-2" type="radio" name="radio" value="2"></input>
-                                    <label for="dailyProduct-size-form__radio-2">17,5</label>
-                                </div>
-                                
-                                <div class="dailyProduct-size__form">
-                                    <input id="dailyProduct-size-form__radio-3" type="radio" name="radio" value="3"></input>
-                                    <label for="dailyProduct-size-form__radio-3">18,5</label>
-                                </div>
-                                
-                                <div class="dailyProduct-size__form">
-                                    <input id="dailyProduct-size-form__radio-4" type="radio" name="radio" value="4"></input>
-                                    <label for="dailyProduct-size-form__radio-4">19</label>
-                                </div>
-                                <div class="dailyProduct-size__form">
-                                    <input id="dailyProduct-size-form__radio-4" type="radio" name="radio" value="4"></input>
-                                    <label for="dailyProduct-size-form__radio-4">19,5</label>
-                                </div>
-                                <div class="dailyProduct-size__form">
-                                    <input id="dailyProduct-size-form__radio-4" type="radio" name="radio" value="4"></input>
-                                    <label for="dailyProduct-size-form__radio-4">19,5</label>
-                                </div>
-                                <div class="dailyProduct-size__form">
-                                    <input id="dailyProduct-size-form__radio-4" type="radio" name="radio" value="4"></input>
-                                    <label for="dailyProduct-size-form__radio-4">19</label>
-                                </div>
-                                <div class="dailyProduct-size__form">
-                                    <input id="dailyProduct-size-form__radio-4" type="radio" name="radio" value="4"></input>
-                                    <label for="dailyProduct-size-form__radio-4">19,5</label>
-                                </div>
-                                <div class="dailyProduct-size__form">
-                                    <input id="dailyProduct-size-form__radio-4" type="radio" name="radio" value="4"></input>
-                                    <label for="dailyProduct-size-form__radio-4">19,5</label>
-                                </div>
-                               </div>
+                           <ul className="dailyProduct-sizes">
+                           {
+                            itemSizes.map((item, index) => {
+                                return (
+                                    <li 
+                                        onClick={() => setItemSize(index)}
+                                        class={`dailyProduct-sizes__item 
+                                        ${ itemSize === index ? 'active' : ''}`}>
+                                        {item}
+                                    </li>  
+                                )
+                            })
+                        }
+                            </ul>
+                            
                         </div>
                         </form>
                         <div className="dailyProduct__info">

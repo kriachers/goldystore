@@ -16,7 +16,60 @@
 }
 
 .header-contact__city {
+    position: relative;
+}
+
+.header-contact-city__wrapper { 
     gap: 8px;
+}
+
+.header-city__text {
+    cursor: pointer;
+}
+
+.header-city__modal {
+
+    opacity: 0;
+    pointer-events: none;
+
+    position: absolute;
+    width: 100%;
+    min-width: 150px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 8px 20px rgb(0 0 0 / 10%);
+    top: 25px;
+    left: 0;
+    z-index: 2;
+    transition: all ease-in-out 0.3s;
+}
+
+
+.header-city__modal.open {
+    opacity: 1;
+    pointer-events: all;
+    transition: all ease-in-out 0.3s;
+}
+
+.header-modal-list__item {
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out background-color ;
+}
+
+.header-modal-list__item:hover {
+    color: #505050;
+}
+
+.header-modal-list__item:not(:last-child) {
+    border-bottom: #F0F0F0 solid 1px;
+}
+
+
+.header-modal-list__item.active {
+    transition: 0.3s ease-in-out background-color;
+    background-color: #F0F0F0;
+    font-weight: 500;
 }
 
 .header-contact__phone {
@@ -79,7 +132,7 @@
 .header-presonal__login,
 .header-personal__icons,
 .header-contact__phone,
-.header-contact__city,
+.header-contact-city__wrapper,
 .header__contact {
     display: flex;
     align-items: center;
@@ -335,3 +388,4 @@ input[type=search] {
         gap: 20px;
     }
 }
+

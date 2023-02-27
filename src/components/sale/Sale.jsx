@@ -1,117 +1,416 @@
-import Sticker from "../ux/Sticker";
-import Price from '../ux/price/Price'
-import Dots from "../ux/dots/Dots";
+import Modal from "../ux/modal/Modal";
+import React from "react";
 import { useState } from "react";
+import Skeleton from "./Skeleton";
+import Item from "../item/Item";
+import { AppContext } from "../../App";
+
 
 const itemData = [
     {
-        id: 1,
-        title: 'Стильное кольцо из белого золота c бриллиантами',
-        img: './sale/items/ring-1.png',
-        imgRetina: './sale/items/ring-1@2x.png',
-        category: 'ring',
-        isSale: true,
-        actualPrice: 41000,
-        currentPrice: 65000,
-        saleAmount: '-65%',
-        isLiked: false,
+        "id": 1,
+        "title": "Стильное кольцо из белого золота c бриллиантами",
+        "img": "./sale/items/ring-1.png",
+        "imgRetina": "./sale/items/ring-1@2x.png",
+        "category": "ring",
+        "isSale": true,
+        "actualPrice": 41000,
+        "currentPrice": 65000
+      }, 
+      {
+        "id": 2,
+        "title": "Стильное кольцо из белого золота c бриллиантами",
+        "img": "./sale/items/ring-2.png",
+        "imgRetina": "./sale/items/ring-2@2x.png",
+        "category": "ring",
+        "isSale": false,
+        "actualPrice": 56000,
+        "currentPrice": 56000
+      },
+      {
+        "id": 3,
+        "title": "Стильное кольцо из белого золота c бриллиантами",
+        "img": "./sale/items/ring-3.png",
+        "imgRetina": "./sale/items/ring-3@2x.png",
+        "category": "ring",
+        "isSale": false,
+        "actualPrice": 37500,
+        "currentPrice": 37500
+      },
+    {
+        "id": 4,
+        "title": "Стильное кольцо из белого золота c бриллиантами",
+        "img": "./sale/items/ring-4.png",
+        "imgRetina": "./sale/items/ring-4@2x.png",
+        "category": "ring",
+        "isSale": false,
+        "actualPrice": 39200,
+       "currentPrice": 39200
     },
     {
-        id: 2,
-        title: 'Стильное кольцо из белого золота c бриллиантами',
-        img: './sale/items/ring-2.png',
-        imgRetina: './sale/items/ring-2@2x.png',
-        category: 'ring',
-        isSale: false,
-        actualPrice: 56000,
-        currentPrice: 56000,
-        saleAmount: '',
-        isLiked: false,
+        "id": 5,
+        "title": "Серьги с кристаллами cваровски из красного золота 585 пробы",
+        "img": "./sale/items/ring-4.png",
+        "imgRetina": "./sale/items/ring-4@2x.png",
+        "category": "earring",
+        "isSale": false,
+        "actualPrice": 20200,
+        "currentPrice": 25200
     },
     {
-        id: 3,
-        title: 'Стильное кольцо из белого золота c бриллиантами',
-        img: './sale/items/ring-3.png',
-        imgRetina: './sale/items/ring-3@2x.png',
-        category: 'ring',
-        isSale: false,
-        actualPrice: 37500,
-        currentPrice: 37500,
-        saleAmount: '',
-        isLiked: false,
+        
+            "id": 6,
+            "title": "Мужские часы из золота и серебра НИКА Ego 1398.0.19.81B",
+            "img": "./sale/items/watch-1.jpg",
+            "imgRetina": "./sale/items/watch-1.jpg",
+            "category": "watch",
+            "isSale": false,
+            "actualPrice": 71617,
+            "currentPrice": 102310   
     },
     {
-        id: 4,
-        title: 'Стильное кольцо из белого золота c бриллиантами',
-        img: './sale/items/ring-4.png',
-        imgRetina: './sale/items/ring-4@2x.png',
-        category: 'ring',
-        isSale: false,
-        actualPrice: 39200,
-        currentPrice: 39200,
-        saleAmount: '',
-        isLiked: false,
+        "id": 7,
+        "title": "Серебряные мужские часы SOKOLOV",
+        "img": "./sale/items/watch-2.jpg",
+        "imgRetina": "./sale/items/watch-2.jpg",
+        "category": "watch",
+        "isSale": false,
+        "actualPrice": 49707,
+        "currentPrice": 71778  
+
     },
+    {
+        "id": 8,
+        "title": "Серебряные мужские часы НИКА",
+        "img": "./sale/items/watch-3.jpg",
+        "imgRetina": "./sale/items/watch-3.jpg",
+        "category": "watch",
+        "isSale": false,
+        "actualPrice": 31500,
+        "currentPrice": 45000  
+
+    },
+    {
+        "id": 9,
+        "title": "Серебряные мужские часы WATCH",
+        "img": "./sale/items/watch-4.jpg",
+        "imgRetina": "./sale/items/watch-4.jpg",
+        "category": "watch",
+        "isSale": false,
+        "actualPrice": 67500,
+        "currentPrice": 28000  
+    },
+    {
+        "id": 10,
+        "title": "Серебряные мужские часы WOW",
+        "img": "./sale/items/watch-4.jpg",
+        "imgRetina": "./sale/items/watch-4.jpg",
+        "category": "watch",
+        "isSale": false,
+        "actualPrice": 50500,
+        "currentPrice": 18000  
+    },
+    {
+        "id": 11,
+        "title": "Золотой пустотелый браслет Тройной ромб",
+        "img": "./sale/items/bracelet-1.jpg",
+        "imgRetina": "./sale/items/bracelet-1.jpg",
+        "category": "bracelet",
+        "isSale": false,
+        "actualPrice": 7176,
+        "currentPrice": 11900  
+    },
+    {
+        "id": 12,
+        "title": "Золотой жесткий браслет",
+        "img": "./sale/items/bracelet-2.jpg",
+        "imgRetina": "./sale/items/bracelet-2.jpg",
+        "category": "bracelet",
+        "isSale": false,
+        "actualPrice": 25096,
+        "currentPrice": 38000
+    },
+    {
+        "id": 13,
+        "title": "Красивый золотой браслет",
+        "img": "./sale/items/bracelet-3.jpg",
+        "imgRetina": "./sale/items/bracelet-3.jpg",
+        "category": "bracelet",
+        "isSale": false,
+        "actualPrice": 15000,
+        "currentPrice": 20000  
+    },
+    {
+        "id": 14,
+        "title": "Красивый браслет",
+        "img": "./sale/items/bracelet-4.jpg",
+        "imgRetina": "./sale/items/bracelet-4.jpg",
+        "category": "bracelet",
+        "isSale": false,
+        "actualPrice": 15000,
+        "currentPrice": 29000  
+    },
+    {
+        "id": 15,
+        "title": "Золотой браслет",
+        "img": "./sale/items/bracelet-5.jpg",
+        "imgRetina": "./sale/items/bracelet-5.jpg",
+        "category": "bracelet",
+        "isSale": false,
+        "actualPrice": 16000,
+        "currentPrice": 25000  
+    },
+    {
+        "id": 16,
+        "title": "Золотое ожерелье",
+        "img": "./sale/items/necklace-1.jpg",
+        "imgRetina": "./sale/items/necklace-1.jpg",
+        "category": "necklace",
+        "isSale": false,
+        "actualPrice": 10500,
+        "currentPrice": 15000  
+    },
+    {
+        "id": 17,
+        "title": "Серебряное ожерелье",
+        "img": "./sale/items/necklace-2.jpg",
+        "imgRetina": "./sale/items/necklace-2.jpg",
+        "category": "necklace",
+        "isSale": false,
+        "actualPrice": 10500,
+        "currentPrice": 15000  
+    },
+    {
+        "id": 18,
+        "title": "Серебряное ожерелье",
+        "img": "./sale/items/necklace-3.jpg",
+        "imgRetina": "./sale/items/necklace-3.jpg",
+        "category": "necklace",
+        "isSale": false,
+        "actualPrice": 10500,
+        "currentPrice": 15000  
+    },
+    {
+        "id": 19,
+        "title": "Серебряное ожерелье",
+        "img": "./sale/items/necklace-4.jpg",
+        "imgRetina": "./sale/items/necklace-4.jpg",
+        "category": "necklace",
+        "isSale": false,
+        "actualPrice": 10500,
+        "currentPrice": 15000  
+    },
+    {
+        "id": 20,
+        "title": "Серебряное ожерелье",
+        "img": "./sale/items/necklace-5.jpg",
+        "imgRetina": "./sale/items/necklace-5.jpg",
+        "category": "necklace",
+        "isSale": false,
+        "actualPrice": 10500,
+        "currentPrice": 15000  
+    },
+    {
+        "id": 21,
+        "title": "Золотые серьги",
+        "img": "./sale/items/earring-1.jpg",
+        "imgRetina": "./sale/items/earring-1.jpg",
+        "category": "earring",
+        "isSale": false,
+        "actualPrice": 9900,
+        "currentPrice": 18900  
+    },
+    {
+        "id": 22,
+        "title": "Золотые серьги",
+        "img": "./sale/items/earring-1.jpg",
+        "imgRetina": "./sale/items/earring-1.jpg",
+        "category": "earring",
+        "isSale": false,
+        "actualPrice": 8900,
+        "currentPrice": 15000  
+    },
+    {
+        "id": 23,
+        "title": "Золотые серьги блестящие",
+        "img": "./sale/items/earring-1.jpg",
+        "imgRetina": "./sale/items/earring-1.jpg",
+        "category": "earring",
+        "isSale": false,
+        "actualPrice": 8700,
+        "currentPrice": 15600  
+    },
+    {
+        "id": 24,
+        "title": "Золотые серьги",
+        "img": "./sale/items/earring-1.jpg",
+        "imgRetina": "./sale/items/earring-1.jpg",
+        "category": "earring",
+        "isSale": false,
+        "actualPrice": 5699,
+        "currentPrice": 18900  
+    },
+    {
+        "id": 25,
+        "title": "Золотые серьги",
+        "img": "./sale/items/earring-1.jpg",
+        "imgRetina": "./sale/items/earring-1.jpg",
+        "category": "earring",
+        "isSale": false,
+        "actualPrice": 7800,
+        "currentPrice": 15000  
+    },
+    {
+        "id": 26,
+        "title": "Обручальное кольцо",
+        "img": "./sale/items/engagement-1.jpg",
+        "imgRetina": "./sale/items/engagement-1.jpg",
+        "category": "engagement",
+        "isSale": false,
+        "actualPrice": 25000,
+        "currentPrice": 20000  
+    },
+    {
+        "id": 27,
+        "title": "Обручальное кольцо",
+        "img": "./sale/items/engagement-2.jpg",
+        "imgRetina": "./sale/items/engagement-2.jpg",
+        "category": "engagement",
+        "isSale": false,
+        "actualPrice": 20000,
+        "currentPrice": 15000  
+    },
+    {
+        "id": 28,
+        "title": "Обручальное кольцо",
+        "img": "./sale/items/engagement-3.jpg",
+        "imgRetina": "./sale/items/engagement-3.jpg",
+        "category": "engagement",
+        "isSale": false,
+        "actualPrice": 15000,
+        "currentPrice": 12500  
+    },
+    {
+        "id": 29,
+        "title": "Обручальное кольцо",
+        "img": "./sale/items/engagement-4.jpg",
+        "imgRetina": "./sale/items/engagement-4.jpg",
+        "category": "engagement",
+        "isSale": false,
+        "actualPrice": 12500,
+        "currentPrice": 17500  
+    },
+    {
+        "id": 30,
+        "title": "Обручальное кольцо",
+        "img": "./sale/items/engagement-5.jpg",
+        "imgRetina": "./sale/items/engagement-5.jpg",
+        "category": "engagement",
+        "isSale": false,
+        "actualPrice": 10500,
+        "currentPrice": 15500
+    }
 
 ]
 
 function Sale() {
 
+    const [items, setItems] = React.useState([])
+    const [isLoading, setIsLoading] = React.useState(true)
+
+    const {selectedSaleCategory, setSelectedSaleCategory} = React.useContext(AppContext)
+
+    React.useEffect(() => {
+        setIsLoading(true)
+        fetch('https://63f8ae025b0e4a127deb3a69.mockapi.io/items?category='+selectedSaleCategory).then((res) => {
+            return res.json()
+        }).then((json) => {
+            setItems(json)
+            setIsLoading(false)
+        })
+    }, [selectedSaleCategory])
+
+    function openEye (item) {
+        setModalOpen(true)
+         setEyeData(item)
+         console.log('modal')
+     }
+
+    const [modalOpen, setModalOpen] = useState(false)
+    const [eyeData, setEyeData] = useState('')
+
+        const categories =  [
+            {
+                title: 'Кольца',
+                category: 'ring',
+            },
+            {
+                title: 'Серьги',
+                category: 'earring',
+            },
+            {
+                title: 'Браслеты',
+                category: 'bracelet'
+            },
+            {
+                title: 'Часы',
+                category: 'watch'
+            }
+        ]
+
+    const [activeIndex, setActiveIndex] = React.useState(0)
+
+    const onClickCategory = (value, index) => {
+        setActiveIndex(index)
+        setSelectedSaleCategory(value.category)
+    }
+
+
     return (
         <div className="container">
+            <Modal modalOpen={modalOpen} item={eyeData} setModalOpen={setModalOpen}></Modal>
             <section className="sale section container-bottom">
                 <h2 className="sale__title">Распродажа</h2>
 
                 <div className="sale__categories">
-                    <button className="sale-categories__button active">Кольца</button>
-                    <button className="sale-categories__button">Серьги</button>
-                    <button className="sale-categories__button">Браслеты</button>
-                    <button className="sale-categories__button">Часы</button>
+                    {
+                        categories.map((value, index) => {
+                            return(
+                                <button onClick={() => onClickCategory(value, index)} 
+                                className={`sale-categories__button ${activeIndex === index ? 'active' : ''}`}>
+                                    {value.title}
+                                </button>
+                            )
+                        })
+                    }
                 </div>
     
     
                 <div className="sale__plate">
-                {
-                    itemData.map((item, index) => {
-                        return (
-                            
-                    <div className="sale-plate__tile">
-        
-                    <svg className="sale-icon__eye svg-icon" width="24" height="24" viewBox="0 0 24 24" fill="#C9C9C9" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M13.0044 3.5C13.0044 2.94772 12.5567 2.5 12.0044 2.5C11.4521 2.5 11.0044 2.94772 11.0044 3.5V5.54989C10.0448 5.64609 9.12848 5.87731 8.27405 6.20772L7.4446 5.05037C7.12289 4.60146 6.49817 4.49836 6.04927 4.82007C5.60036 5.14179 5.49726 5.76651 5.81898 6.21541L6.45792 7.10695C5.92702 7.43178 5.434 7.79271 4.98539 8.17708C3.24791 9.6658 2 11.6684 2 13.5C2 15.3316 3.24791 17.3342 4.98539 18.8229C6.76222 20.3453 9.23586 21.5 12 21.5C14.7639 21.5 17.2376 20.3462 19.0145 18.8241C20.7522 17.3355 22 15.333 22 13.5C22 11.667 20.7522 9.66444 19.0145 8.17591C18.6848 7.89346 18.331 7.62368 17.9559 7.37161L18.6253 6.43759C18.947 5.98869 18.844 5.36398 18.3951 5.04225C17.9462 4.72053 17.3214 4.82362 16.9997 5.27252L16.1918 6.39975C15.2102 5.96793 14.1376 5.66528 13.0044 5.55075V3.5ZM12 9.5C9.79086 9.5 8 11.2909 8 13.5C8 15.7091 9.79086 17.5 12 17.5C14.2091 17.5 16 15.7091 16 13.5C16 11.2909 14.2091 9.5 12 9.5Z"/>
-                    </svg>
 
+                    {
+                        isLoading 
+                        ? [... new Array(6)].map((_, index) => <Skeleton key={index}/>)
+                        : 
+                        items.map((item, index) => {
+                            return (
+                                <Item item={item} index={index} openEye={openEye}></Item>
                     
-                        <div className="sale-tile__stickers"> 
-                        <div className="sale-stickers__text">
-                            {item.isSale ?  <Sticker class={'sale__stickers-offer'} content={'Sale'}></Sticker> : ''}
-                        </div>
-                        <div className="sale-stickers__icons">
-                                <svg className={`sale__stickers-like svg-icon`} width="24" height="24" viewBox="0 0 24 24" fill="#C9C9C9" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M2 8.39995C1.99975 6.95029 2.58239 5.5614 3.61681 4.54578C4.65124 3.53016 6.05058 2.97311 7.5 2.99995C9.21732 2.99083 10.856 3.71913 12 4.99995C13.144 3.71913 14.7827 2.99083 16.5 2.99995C17.9494 2.97311 19.3488 3.53016 20.3832 4.54578C21.4176 5.5614 22.0002 6.95029 22 8.39995C22 13.756 15.621 17.8 12 21C8.387 17.773 2 13.76 2 8.39995Z" />
-                                </svg>
-                            </div>
-                        </div>
-
-                        <div className="sale-plate__icon">
-                            <img src={`${item.img}`} srcSet={`${item.imgRetina} 2x`} alt="" className="sale__icon-picture" />
-                        
-                            <Dots class={'sale-icon__dots'}></Dots>
-                        </div>
-    
-                        <Price actualPrice={item.actualPrice} isSale prevousPrice={65000} saleAmount={'-65%'}></Price>
-                        <p className="sale-title">{item.title}</p>
-
-                    </div>
+                                )
+                            })
+                    }
                 
-                        )
-                    })
-                }
+                
+
+                
                 </div>
 
                 
             </section>
         </div>
+
+            
+
     );
 }
 

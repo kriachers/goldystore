@@ -1,23 +1,45 @@
-import logo from './logo.svg';
+
 import './App.css';
+import React from 'react';
 import Header from './components/header/Header';
-import Popular from './components/popular/Popular';
-import Propmotions from './components/promotions/Promotions';
-import Sale from './components/sale/Sale';
-import DailyProduct from './components/DailyProduct/DailyProduct';
-import Hero from './components/hero/Hero';
-import Articles from './components/articles/Articles';
+import MainPage from './pages/MainPage';
+import CartPage from './pages/CartPage';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Routes,
+  Link,
+  BrowserRouter,
+} from "react-router-dom";
+import CategoryPage from './pages/CategoryPage';
+import FavoritesPage from './pages/favoritesPage/FavoritesPage';
+
+export const AppContext = React.createContext('')
 
 function App() {
-  return (
+
+  const [selectedCategory, setSelectedCategory] = React.useState('')
+  const [selectedSaleCategory, setSelectedSaleCategory] = React.useState('ring')
+  const [favorites, setFavorites] = React.useState([])
+
+  return ( 
     <div className="App">
-      <Header></Header>
-      <Hero></Hero>
-      <Popular></Popular>
-      <Sale></Sale>
-      <Propmotions></Propmotions>
-      <DailyProduct></DailyProduct>
-      <Articles></Articles>
+
+    <AppContext.Provider 
+    value={{selectedCategory, setSelectedCategory, 
+    selectedSaleCategory, setSelectedSaleCategory,
+    favorites, setFavorites}}>
+        <BrowserRouter>
+        <Header/>
+          <Routes>
+            <Route exact path="/" element={<MainPage/>}></Route>
+            <Route exact path="/cart" element={<CartPage/>}></Route>
+            <Route exact path="/category" element={<CategoryPage/>}></Route>
+            <Route exact path="/favorites" element={<FavoritesPage/>}></Route>
+          </Routes>
+        </BrowserRouter>
+      </AppContext.Provider>
     </div>
   );
 }
