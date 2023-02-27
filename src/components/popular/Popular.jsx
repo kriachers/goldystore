@@ -49,12 +49,11 @@ function Popular() {
                     categoryData.map((item) => {
                         return (  
                         
-                            <Link 
-                            className="category-plate__tile" 
-                            to="/category"
-                            onClick={() => setSelectedCategory(item.category)}>
-                                <div>
-                                <p className="category-tile__title">{item.title}</p>
+                            <Link to="/category"
+                            onClick={() => setSelectedCategory(item.category)}
+                            className="category-plate__tile"> 
+                                <div className="category-plate__inner-tile" >
+                                    <p className="category-tile__title">{item.title}</p>
                                 </div>
                             </Link>
                           

@@ -75,14 +75,13 @@
     }
 } 
 
-@media (max-width: 420px) {
-    .hero__img {
-        display: none;
-    }
+@media (max-width: 460px) {
+
     
     .hero {
+        flex-direction: column-reverse;
         justify-content: center;
-        padding: 25px 40px 30px 40px
+        padding: 10px 20px 40px 20px;
     }
 
     .hero__nav {

@@ -31,56 +31,65 @@
     height: 259px;
 } 
 
+.category-plate__tile {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+}
+
 .category-plate__tile:nth-child(1) {
     background-image: image-set(
         url("../../../public/category/ring.png") 1x,
         url("../../../public/category/ring@2x.png") 2x);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 60%;
 }
 
 .category-plate__tile:nth-child(2) {
     background-image: image-set(
         url("../../../public/category/earring.png") 1x,
         url("../../../public/category/earring@2x.png") 2x);
-  background-position: center;
-  background-repeat: no-repeat;
-    background-size: 60%
 }
 
 .category-plate__tile:nth-child(3) {
     background-image: 
         url("../../../public/category/engagement_ring.png");
-  background-position: center;
-  background-repeat: no-repeat;
-    background-size: 58.5%
 }
 
 .category-plate__tile:nth-child(4) {
     background-image: image-set(
         url("../../../public/category/bracelet.png") 1x,
         url("../../../public/category/bracelet@2x.png") 2x);
-  background-position: center;
-  background-repeat: no-repeat;
-    background-size: 64%
 }
 
 .category-plate__tile:nth-child(5) {
     background-image: image-set(
         url("../../../public/category/necklace.png") 1x,
         url("../../../public/category/nacklace@2x.png") 2x);
-  background-position: center;
-  background-repeat: no-repeat;
-    background-size: 61%
 }
 
 .category-plate__tile:nth-child(6) {
     background-image: image-set(
         url("../../../public/category/watch.png") 1x,
         url("../../../public/category/watch@2x.png") 2x);
-  background-position: center;
-  background-repeat: no-repeat;
-    background-size: 61%
 }
 
+@media (max-width: 500px) {
+    .category-plate__tile {
+        width: 100%;
+        height: 100px;
+        background-position: right;
+        background-size: auto;
+        padding: 10px 60px 10px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+
+    }
+
+    .popular__plate {
+        grid-template-columns: 1fr;
+    }
+
+    
+
+
+}
