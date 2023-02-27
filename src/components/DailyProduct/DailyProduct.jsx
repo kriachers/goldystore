@@ -65,10 +65,14 @@ function DailyProduct() {
                         {
                             itemColors.map((item, index) => {
                                 return (
-                                    <li 
-                                    onClick={() => setItemColor(index)}
-                                    class={`dailyProduct-color__item ${item} ${ itemColor === index ? 'active' : ''}`}>
-                                    </li>  
+                                    <div onClick={() => setItemColor(index)}
+                                    className={`dailyProduct-color__item-wrapper
+                                            ${ itemColor === index ? 'active' : ''}`}>
+                                        <li 
+                                        className={`dailyProduct-color__item 
+                                                    ${item}`}>
+                                        </li>  
+                                    </div>
                                 )
                             })
                         }
@@ -91,12 +95,14 @@ function DailyProduct() {
                            {
                             itemSizes.map((item, index) => {
                                 return (
+                                    
                                     <li 
                                         onClick={() => setItemSize(index)}
                                         class={`dailyProduct-sizes__item 
                                         ${ itemSize === index ? 'active' : ''}`}>
                                         {item}
                                     </li>  
+                                   
                                 )
                             })
                         }
