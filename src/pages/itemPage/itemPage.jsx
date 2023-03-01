@@ -6,6 +6,10 @@ import React from 'react';
 
 function ItemPage() {
 
+    React.useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     const {clickedItem} = React.useContext(AppContext)
 
 
