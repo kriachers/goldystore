@@ -15,6 +15,7 @@ import {
 } from "react-router-dom";
 import CategoryPage from './pages/CategoryPage';
 import FavoritesPage from './pages/favoritesPage/FavoritesPage';
+import ItemPage from './pages/itemPage/itemPage';
 
 export const AppContext = React.createContext('')
 
@@ -23,6 +24,7 @@ function App() {
   const [selectedCategory, setSelectedCategory] = React.useState('')
   const [selectedSaleCategory, setSelectedSaleCategory] = React.useState('ring')
   const [favorites, setFavorites] = React.useState([])
+  const [clickedItem, setClickedItem] = React.useState(0)
 
   return ( 
     <div className="App">
@@ -30,7 +32,8 @@ function App() {
     <AppContext.Provider 
     value={{selectedCategory, setSelectedCategory, 
     selectedSaleCategory, setSelectedSaleCategory,
-    favorites, setFavorites}}>
+    favorites, setFavorites,
+    clickedItem, setClickedItem}}>
         <HashRouter>
         <Header/>
           <Routes>
@@ -38,6 +41,8 @@ function App() {
             <Route exact path="/cart" element={<CartPage/>}></Route>
             <Route exact path="/category" element={<CategoryPage/>}></Route>
             <Route exact path="/favorites" element={<FavoritesPage/>}></Route>
+            <Route exact path="/item" element={<ItemPage/>}></Route>
+
           </Routes>
         </HashRouter>
       </AppContext.Provider>

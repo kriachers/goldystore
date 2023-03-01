@@ -9,7 +9,6 @@
 @import url(./components/ux/tooltip/Tooltip.scss);
 @import url(./components/ux/like/Like.scss);
 @import url(./components/ux/modal/Modal.scss);
-@import url(./components/item/Item.scss);
 
 @import url(./components/header/Header.scss);
 @import url(./components/hero/Hero.scss);
@@ -20,12 +19,10 @@
 @import url(./components/DailyProduct/DailyProduct.scss);
 @import url(./components/articles/Articles.scss);
 @import url(./components/dropdown/Dropdown.scss);
-@import url(./components/item/Item.scss);
+@import url(./components/thumbItem/ThumbItem.scss);
 
 @import url(./pages/categoryPage/categoryPage.scss);
 @import url(./pages/favoritesPage/FavoritesPage.scss);
 
-
-/* @import url(../node_modules/swiper/swiper.scss); */
 @import url(../node_modules/swiper/swiper-bundle.css);
-/* @import url(../node_modules/swiper/modules/navigation/navigation.scss); */
+

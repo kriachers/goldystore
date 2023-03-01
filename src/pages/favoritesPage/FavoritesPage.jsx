@@ -1,5 +1,5 @@
 import React from "react";
-import Item from "../../components/item/Item";
+import ThumbItem from "../../components/thumbItem/ThumbItem";
 import Modal from "../../components/ux/modal/Modal";
 import {AppContext} from "../../App"
 
@@ -28,7 +28,7 @@ function FavoritesPage() {
                             {
                                 favorites.map((item, index) => {
                                     return (
-                                        <Item item={item} index={index} openEye={openEye}></Item>
+                                        <ThumbItem item={item} index={index} openEye={openEye}></ThumbItem>
                                         )
                                     })
                                 }

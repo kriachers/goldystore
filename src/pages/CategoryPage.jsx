@@ -1,6 +1,6 @@
 import React from "react";
 import Skeleton from "../components/sale/Skeleton";
-import Item from "../components/item/Item";
+import ThumbItem from "../components/thumbItem/ThumbItem";
 import Modal from "../components/ux/modal/Modal";
 import {AppContext} from "../App"
 
@@ -81,8 +81,14 @@ function CategoryPage (props) {
                             : 
                             items.map((item, index) => {
                                 return (
-                                    <Item item={item} index={index} openEye={openEye}></Item>
-                        
+                                    // <Link to="/item" onClick={() => setClickedItem(item)}>
+                                        <ThumbItem 
+                                            item={item} 
+                                            index={index} 
+                                            openEye={openEye}
+                                            >
+                                        </ThumbItem>
+                                    //  </Link >
                                     )
                                 })
                         }
