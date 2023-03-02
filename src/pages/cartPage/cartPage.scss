@@ -1,0 +1,25 @@
+.cartPage__plate {
+    display: flex;
+    flex-direction: column;
+    gap: 20px
+}
+
+.cartPage-plate__tile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cartPage-tile__info {
+    display: flex;
+    align-items: center;
+    flex-basis: 50%;
+}
+
+.cartPage-tile__icon {
+     width: 80px
+}
+
+.cartPage-tile__price {
+    font-weight: 600;
+}

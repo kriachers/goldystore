@@ -24,7 +24,9 @@ function App() {
   const [selectedCategory, setSelectedCategory] = React.useState('')
   const [selectedSaleCategory, setSelectedSaleCategory] = React.useState('ring')
   const [favorites, setFavorites] = React.useState([])
+  const [cart, setCart] = React.useState([])
   const [clickedItem, setClickedItem] = React.useState(0)
+  const [summaryCart, setSummaryCart] = React.useState(0);
 
   return ( 
     <div className="App">
@@ -33,7 +35,9 @@ function App() {
     value={{selectedCategory, setSelectedCategory, 
     selectedSaleCategory, setSelectedSaleCategory,
     favorites, setFavorites,
-    clickedItem, setClickedItem}}>
+    clickedItem, setClickedItem,
+    summaryCart, setSummaryCart,
+    cart, setCart}}>
         <HashRouter>
         <Header/>
           <Routes>

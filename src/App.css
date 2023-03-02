@@ -23,6 +23,7 @@
 
 @import url(./pages/categoryPage/categoryPage.scss);
 @import url(./pages/favoritesPage/FavoritesPage.scss);
+@import url(./pages/cartPage/cartPage.scss);
 
 @import url(../node_modules/swiper/swiper-bundle.css);
 

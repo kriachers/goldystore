@@ -6,7 +6,7 @@ const categoryData = [
     {
         title: 'Кольца',
         img: './category/ring.png',
-        category: 'ring',
+        category: 'fingerRing',
     },
     {
         title: 'Серьги',

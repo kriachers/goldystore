@@ -15,14 +15,14 @@ function Hero() {
         {
             title: 'Cуперскидка до -50%',
             descr: 'На часы',
-            img: './hero/ring.png',
-            imgRetina: './hero/ring@2x.png'
+            img: './hero/watch.png',
+            imgRetina: './hero/watch.png'
         },
         {
             title: 'Cуперскидка до -30%',
             descr: 'На серьги',
-            img: './hero/ring.png',
-            imgRetina: './hero/ring@2x.png'
+            img: './hero/earring.png',
+            imgRetina: './hero/earring.png'
         }
 
     ]
@@ -44,7 +44,7 @@ function Hero() {
             heroData.map((item) => {
                 return (
                     <SwiperSlide>
-                        <HeroItem title={item.title} descr={item.descr}></HeroItem>
+                        <HeroItem title={item.title} descr={item.descr} img={item.img} imgRetina={item.imgRetina}></HeroItem>
                     </SwiperSlide>
                 )
             })

@@ -1,6 +1,6 @@
 .hero {
     position: relative;
-    padding: 12px 36px 0 126px;
+    padding: 30px 36px 30px 126px;
     display: flex;
     justify-content: space-between; 
     align-items: center;
@@ -9,6 +9,11 @@
     background-size: auto 120%;
     background-repeat: no-repeat;
     background-position: left -20px% top 24px;
+    height: 400px;
+}
+
+.hero__picture-wrapper {
+    flex-basis: 45%;
 }
    
 .hero-wrapper__subtitle {
@@ -82,11 +87,28 @@
         flex-direction: column-reverse;
         justify-content: center;
         padding: 10px 20px 40px 20px;
+        gap: 20px;
+    }
+
+    .hero__picture-wrapper {
+        flex-basis: auto;
+    }
+
+    .hero__img {
+        max-height: 250px;
     }
 
     .hero__nav {
         margin: 0 0px;
         width: 100%;
+    }
+
+    .hero {
+        height: auto;
+    }
+    
+    .hero__img{
+        max-height: auto;
     }
 
     

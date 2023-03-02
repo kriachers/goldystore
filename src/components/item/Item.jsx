@@ -4,12 +4,44 @@ import Sticker from "../ux/Sticker";
 import Stars from "../ux/stars/Stars";
 import Price from "../ux/price/Price";
 import React from "react";
+import { AppContext } from "../../App";
 
 
 function FullItem(props) {
     const [openTooltip, isOpenTooltip] = React.useState(false);
     const [itemColor, setItemColor] = React.useState(0)
     const [itemSize, setItemSize] = React.useState(0) 
+    const {setCart, cart} = React.useContext(AppContext)
+
+    const addToCart = (item) => {
+
+        if (cart.find((elem) => item.id === elem.id)) {
+            setCart (
+             cart.map((elem) => {
+                if (item.id === elem.id) {
+                    return { ...elem, count: elem.count + 1 }
+                } else return elem                
+             })
+            )
+            
+        } else {
+            setCart (
+             cart.map((elem) => {
+            if (item.id === elem.id) {
+                return  { ...elem, count: 1 }
+            } else {
+                return elem
+            }
+              
+        })
+          );
+        }
+
+console.log(cart)
+    }
+
+
+
     return (
         <div className="dailyProduct__item">
                 <div className="dailyProduct-item__icon">
@@ -99,8 +131,15 @@ function FullItem(props) {
                         </form>
                         <div className="dailyProduct__info">
                                 <div className="dailyProduct-info__buttons">
-                                    <Button text={'в корзину'} class={'solid-button dailyProduct__button'}></Button>
-                                    <Button text={'купить в 1 клик'} class={'outline-button dailyProduct__button'}></Button>
+                                    <button 
+                                    className="solid-button dailyProduct__button"
+                                    onClick={() => addToCart(props.item)}>В корзину</button>
+                                    <Button 
+                                
+                                    text={'в корзину'} 
+                                    class={'solid-button dailyProduct__button'}></Button>
+                                    <Button text={'купить в 1 клик'} 
+                                    class={'outline-button dailyProduct__button'}></Button>
                                 </div>
                                 <div className="dailyProduct-info__plate">
                                     <div className="dailyProduct-plate__tile">
