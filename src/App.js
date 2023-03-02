@@ -16,17 +16,19 @@ import {
 import CategoryPage from './pages/CategoryPage';
 import FavoritesPage from './pages/favoritesPage/FavoritesPage';
 import ItemPage from './pages/itemPage/itemPage';
+import PromoPage from './pages/promoPage/PromoPage';
 
 export const AppContext = React.createContext('')
 
 function App() {
 
   const [selectedCategory, setSelectedCategory] = React.useState('')
-  const [selectedSaleCategory, setSelectedSaleCategory] = React.useState('ring')
+  const [selectedSaleCategory, setSelectedSaleCategory] = React.useState('fingerRing')
   const [favorites, setFavorites] = React.useState([])
   const [cart, setCart] = React.useState([])
   const [clickedItem, setClickedItem] = React.useState(0)
   const [summaryCart, setSummaryCart] = React.useState(0);
+  const [bannerInfo, setBannerInfo] = React.useState('');
 
   return ( 
     <div className="App">
@@ -37,7 +39,8 @@ function App() {
     favorites, setFavorites,
     clickedItem, setClickedItem,
     summaryCart, setSummaryCart,
-    cart, setCart}}>
+    cart, setCart,
+    bannerInfo, setBannerInfo}}>
         <HashRouter>
         <Header/>
           <Routes>
@@ -46,6 +49,7 @@ function App() {
             <Route exact path="/category" element={<CategoryPage/>}></Route>
             <Route exact path="/favorites" element={<FavoritesPage/>}></Route>
             <Route exact path="/item" element={<ItemPage/>}></Route>
+            <Route exact path="/promo" element={<PromoPage/>}></Route>
 
           </Routes>
         </HashRouter>

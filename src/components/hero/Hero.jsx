@@ -10,19 +10,22 @@ function Hero() {
             title: 'Cуперскидка до -60%',
             descr: 'На бриллианты',
             img: './hero/ring.png',
-            imgRetina: './hero/ring@2x.png'
+            imgRetina: './hero/ring@2x.png',
+            category: 'fingerRing'
         },
         {
             title: 'Cуперскидка до -50%',
             descr: 'На часы',
             img: './hero/watch.png',
-            imgRetina: './hero/watch.png'
+            imgRetina: './hero/watch.png',
+            category: 'watch'
         },
         {
             title: 'Cуперскидка до -30%',
             descr: 'На серьги',
             img: './hero/earring.png',
-            imgRetina: './hero/earring.png'
+            imgRetina: './hero/earring.png',
+            category: 'earring'
         }
 
     ]
@@ -44,7 +47,7 @@ function Hero() {
             heroData.map((item) => {
                 return (
                     <SwiperSlide>
-                        <HeroItem title={item.title} descr={item.descr} img={item.img} imgRetina={item.imgRetina}></HeroItem>
+                        <HeroItem item={item}></HeroItem>
                     </SwiperSlide>
                 )
             })

@@ -27,6 +27,8 @@
 .sale__plate {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 310px));
+    justify-content: center; 
+    align-items: center;
     gap: 20px;
 }
 

@@ -53,8 +53,6 @@ function CategoryPage (props) {
             setItems(json)
             setIsLoading(false)
             setCategoryTitle(categoryData[categoryData.findIndex(item => item.category === selectedCategory)].title);
-            console.log('https://63f8ae025b0e4a127deb3a69.mockapi.io/items?category='+selectedCategory)
-            console.log(selectedCategory)
         });
         window.scrollTo(0, 0)
     }, [])

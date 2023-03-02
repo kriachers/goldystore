@@ -1,5 +1,4 @@
 .hero {
-    position: relative;
     padding: 30px 36px 30px 126px;
     display: flex;
     justify-content: space-between; 
@@ -27,22 +26,6 @@
     margin-bottom: 54px;
 }
 
-.hero__nav {
-    margin: 0 24px;
-    display: flex;
-    justify-content: space-between;
-    width: calc(100% - (24px * 2));
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%); 
-}
-
-.hero__dots {
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 24px;
-}
 
 @media (max-width: 900px) {
 
@@ -56,17 +39,15 @@
 
     .hero {
         padding: 12px 26px 0 96px;
-    }
-
-    .hero__nav {
-        margin: 0 15px;
-        width: calc(100% - (15px * 2));
+        height: 300px;
+        
     }
 
 
 }
 
 @media (max-width: 650px) {
+   
     .hero {
         padding: 25px 26px 30px 70px;
     }
@@ -75,9 +56,6 @@
         font-size: 16px;
     }
 
-    .hero__dots {
-        bottom: 10px;
-    }
 } 
 
 @media (max-width: 460px) {
@@ -98,11 +76,6 @@
         max-height: 250px;
     }
 
-    .hero__nav {
-        margin: 0 0px;
-        width: 100%;
-    }
-
     .hero {
         height: auto;
     }
@@ -111,5 +84,4 @@
         max-height: auto;
     }
 
-    
 }
