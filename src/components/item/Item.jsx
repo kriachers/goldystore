@@ -25,16 +25,6 @@ function Item(props) {
          
     }, [])
 
-    // const addToCart = (id) => {
-    //     if(cart.find(e => e.id === id)) {
-    //         cart.find(e => e.id === id).count ++
-    //     } else {
-    //         setCart([...cart, { id: id, count: 1} ])
-    //     }
-       
-    //     console.log(cart)
-    // }
-
     const addToCart = (item) => {
         if (cart.find(e => e.id === item.id)) {
             setCart((prev) => {
@@ -149,13 +139,13 @@ function Item(props) {
                                 <div className="dailyProduct-info__buttons">
                                     <button 
                                     className="solid-button dailyProduct__button"
-                                    onClick={() => addToCart(props.item)}>В корзину</button>
-                                    <Button 
+                                    onClick={() => addToCart(item)}>В корзину</button>
+                                    {/* <Button 
                                 
                                     text={'в корзину'} 
                                     class={'solid-button dailyProduct__button'}></Button>
                                     <Button text={'купить в 1 клик'} 
-                                    class={'outline-button dailyProduct__button'}></Button>
+                                    class={'outline-button dailyProduct__button'}></Button> */}
                                 </div>
                                 <div className="dailyProduct-info__plate">
                                     <div className="dailyProduct-plate__tile">

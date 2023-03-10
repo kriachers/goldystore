@@ -20,6 +20,7 @@
      width: 80px
 }
 
+
 .cartPage-tile__price {
     font-weight: 600;
 }
@@ -29,4 +30,8 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
+}
+
+.cartPage-tile-amount__button--add {
+    transform: rotate(45deg);
 }
