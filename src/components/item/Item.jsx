@@ -7,38 +7,54 @@ import React from "react";
 import { AppContext } from "../../App";
 
 
-function FullItem(props) {
+function Item(props) {
     const [openTooltip, isOpenTooltip] = React.useState(false);
     const [itemColor, setItemColor] = React.useState(0)
     const [itemSize, setItemSize] = React.useState(0) 
-    const {setCart, cart} = React.useContext(AppContext)
+    const {setCart, cart, clickedItem} = React.useContext(AppContext)
+    const [item, setItems] = React.useState(0)
+    
+    React.useEffect(() => {
+        fetch('https://63f8ae025b0e4a127deb3a69.mockapi.io/items?id=' + (props.itemId === undefined ? clickedItem : props.itemId) )
+        .then((res) => {
+            return res.json()
+        }).then((json) => {
+            setItems(json.find(elem => elem.id === props.itemId))
+        });
+        
+         
+    }, [])
+
+    // const addToCart = (id) => {
+    //     if(cart.find(e => e.id === id)) {
+    //         cart.find(e => e.id === id).count ++
+    //     } else {
+    //         setCart([...cart, { id: id, count: 1} ])
+    //     }
+       
+    //     console.log(cart)
+    // }
 
     const addToCart = (item) => {
-
-        if (cart.find((elem) => item.id === elem.id)) {
-            setCart (
-             cart.map((elem) => {
-                if (item.id === elem.id) {
-                    return { ...elem, count: elem.count + 1 }
-                } else return elem                
-             })
-            )
-            
+        if (cart.find(e => e.id === item.id)) {
+            setCart((prev) => {
+                return [...prev].map(elem => {
+                  if(elem.id === item.id) {
+                    return {
+                      ...elem,
+                      count: elem.count + 1,
+                      totalPrice: elem.totalPrice + elem.actualPrice,
+                    }
+                  }
+                  return elem;
+                }
+                )})
         } else {
-            setCart (
-             cart.map((elem) => {
-            if (item.id === elem.id) {
-                return  { ...elem, count: 1 }
-            } else {
-                return elem
-            }
-              
-        })
-          );
+            setCart([...cart, {...item, count: 1, totalPrice: item.actualPrice} ])
         }
-
-console.log(cart)
+        console.log(cart)
     }
+
 
 
 
@@ -46,7 +62,7 @@ console.log(cart)
         <div className="dailyProduct__item">
                 <div className="dailyProduct-item__icon">
                     <div className="dailyProduct-icon-img__wrapper">
-                        <img src={props.item.img} alt="" className="dailyProduct-icon__img" />
+                        <img src={item.img} alt="" className="dailyProduct-icon__img" />
                         <div className="dilyProduct-icon__nav">
                             <svg className="dailyProduct-nav__arrow dailyProduct-icon__nav--left dailyProduct-icon__arrow--disabled" width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path className="arrow-svg" d="M1.07102 0.999977L8.14209 8.07104L1.07102 15.1421" stroke="#303030" stroke-width="2"/>
@@ -67,12 +83,12 @@ console.log(cart)
  
                 <div className="dailyProduct__wrapper">
                         <Stars rating={4.2} class={'dailyProduct-item__stars'}></Stars>
-                        <h3 className="dailyProduct-item__title">{props.item.title}</h3>
-                        <p className="dailyProduct-item__vendorcode">{`Артикул: ${props.item.articule}`}</p>
+                        <h3 className="dailyProduct-item__title">{item.title}</h3>
+                        <p className="dailyProduct-item__vendorcode">{`Артикул: ${item.articule}`}</p>
                         <div className="dailyProduct-item__numbers"> 
                         <Price class={'dailyProduct-item-numbers__price'} 
-                            actualPrice={props.item.actualPrice} 
-                            currentPrice={props.item.currentPrice}>
+                            actualPrice={item.actualPrice} 
+                            currentPrice={item.currentPrice}>
                         </Price>
                             <div className="dailyProduct-item__timer">
 
@@ -82,8 +98,8 @@ console.log(cart)
                         <form action="" className="dailyProduct__form">
                         <p className="dailyProduct__title dailyProduct-color__title">Цвет</p>
                         <ul className="dailyProduct__color"> 
-                         { props.item.color &&
-                            props.item.color.map((item, index) => {
+                         { item.color &&
+                            item.color.map((item, index) => {
                                 return (
                                     <div onClick={() => setItemColor(index)}
                                     className={`dailyProduct-color__item-wrapper
@@ -111,8 +127,8 @@ console.log(cart)
                                 </div>
                             </div>
                            <ul className="dailyProduct-sizes">
-                           {props.item.size &&
-                            props.item.size.map((item, index) => {
+                           {item.size &&
+                            item.size.map((item, index) => {
                                 return (
                                     
                                     <li 
@@ -170,4 +186,4 @@ console.log(cart)
     );
 }
 
-export default FullItem;
+export default Item;

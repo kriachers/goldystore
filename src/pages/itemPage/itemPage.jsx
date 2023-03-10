@@ -17,7 +17,7 @@ function ItemPage() {
         <div className="container">
         <section className="dailyProduct section container-bottom">
 
-            <Item item={clickedItem}></Item>
+            <Item itemId={clickedItem.id} item={clickedItem}></Item>
 
         </section>
         </div>

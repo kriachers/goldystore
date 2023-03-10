@@ -442,7 +442,7 @@ function DailyProduct() {
                     </div> 
             </div>
 
-            <Item item={itemData[16]}></Item>
+            <Item itemId={10}></Item>
 
         </section>
         </div>

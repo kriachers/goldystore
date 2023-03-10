@@ -23,3 +23,10 @@
 .cartPage-tile__price {
     font-weight: 600;
 }
+
+.cartPage-tile__amount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
