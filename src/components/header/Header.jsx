@@ -5,7 +5,7 @@ import React from "react";
 import { AppContext } from "../../App";
 
 function Header() {
-    const {favorites, setFavorites} = React.useContext(AppContext)
+    const {favorites, setFavorites, cart} = React.useContext(AppContext)
     const [openMenu, setOpenMenu] = useState(false)
     const [open, setOpen] = useState(false)
 
@@ -15,6 +15,21 @@ function Header() {
     const selectedCityName = cities[selectedCity]
     const cityModalRef = React.useRef()
     const cityModalOpenerRef = React.useRef()
+    const [cartCounter, setCartCounter] = useState(0)
+
+    React.useEffect(() => {
+        setCartCounter(() => {
+            if (cart.length) {
+                let acc = 0;
+                for (let i = 0; i < cart.length; i++) {
+                    acc = acc + cart[i].count
+                }
+                return acc
+             } else return 0
+             
+            })   
+      }, [cart]);
+
 
     const onClickListTtem = (index) => {
         setSelectedCity(index);
@@ -108,7 +123,14 @@ function Header() {
                     </div>
                     <div>
                         <Link to="/cart">
+                            <div className="header__icons-favorites">
                             <img src="./icons/bag.svg" alt="" className="header-icons__pic" />
+                            <div className="header-favorites-sticker__wrapper">
+                                <div className="header-favorites__sticker">
+                                    <p className="header-favorites-sticker__number">{cartCounter}</p>
+                                </div>
+                            </div>
+                            </div>
                         </Link>
                     </div>
                 </div>
