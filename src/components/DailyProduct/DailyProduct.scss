@@ -121,8 +121,10 @@
     width: 100%;
 }
 
-.dailyProduct__button:nth-of-type(1) {
-    margin-bottom: 10px;
+.dailyProduct__count-button {
+    flex-basis: 30%;
+    flex-shrink: 0;
+    padding: 8px;
 }
 
 .dailyProduct-size__info {
@@ -280,6 +282,11 @@
 .dailyProduct-color__item-wrapper.active {
     border-color: #303030;
     transition: all 0.3s ease-in-out;
+}
+
+.dailyProduct-info__buttons {
+    display: flex;
+    margin-bottom: 10px;
 }
 
 @media (max-width: 1200px) {

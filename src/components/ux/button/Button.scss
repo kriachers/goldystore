@@ -1,5 +1,6 @@
 .solid-button {
     background-color: #303030;
+    border: 1px solid #303030;
     padding: 20px 56px;
     font-family: 'Inter';
     font-style: normal;
@@ -14,11 +15,6 @@
 
 .solid-button:hover {
     background-color: #505050;
-    transition: background-color 0.2s ease-in-out;
-} 
-
-.solid-button:active {
-    background-color: #000;
     transition: background-color 0.2s ease-in-out;
 } 
 
@@ -39,17 +35,10 @@ transition: all 0.2s ease-in-out;
 
 .outline-button:hover {
     border: 1px solid #303030;
-    background-color: #303030;
-    color: #fff;
     transition: all 0.2s ease-in-out;
 } 
 
-.outline-button:active {
-    background-color: #000;
-    border: 1px solid #000;
-    color: #fff;
-    transition: all 0.2s ease-in-out;
-} 
+
 
 @media (max-width: 900px) {
     .solid-button,

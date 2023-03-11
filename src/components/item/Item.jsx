@@ -138,14 +138,22 @@ function Item(props) {
                         <div className="dailyProduct__info">
                                 <div className="dailyProduct-info__buttons">
                                     <button 
-                                    className="solid-button dailyProduct__button"
-                                    onClick={() => addToCart(item)}>В корзину</button>
-                                    {/* <Button 
-                                
-                                    text={'в корзину'} 
-                                    class={'solid-button dailyProduct__button'}></Button>
-                                    <Button text={'купить в 1 клик'} 
-                                    class={'outline-button dailyProduct__button'}></Button> */}
+                                    className={`
+                                    ${cart.find(e => e.id === item.id) ? 'outline-button' : 'solid-button'}
+                                    dailyProduct__button`}
+                                    
+                                    onClick={() => addToCart(item)}>
+                                        {cart.find(e => e.id === item.id) 
+                                        ? `В корзине ${cart.find(e => e.id === item.id).count} шт.` 
+                                        : 'Добавить в корзину'}
+                                    </button>
+                                    {cart.find(e => e.id === item.id) 
+                                    ? <button
+                                    onClick={() => addToCart(item)}
+                                    className="dailyProduct__count-button solid-button">
+                                        +1 шт.
+                                    </button>
+                                   : '' }
                                 </div>
                                 <div className="dailyProduct-info__plate">
                                     <div className="dailyProduct-plate__tile">
