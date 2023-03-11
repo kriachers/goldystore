@@ -32,6 +32,10 @@
     gap: 5px;
 }
 
+.cartPage-tile-amount__button {
+    cursor: pointer;
+}
+
 .cartPage-tile-amount__button--add {
     transform: rotate(45deg);
 }
