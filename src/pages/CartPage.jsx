@@ -6,6 +6,20 @@ import React from "react";
 function CartPage () {
     const {cart, setCart} = useContext(AppContext)
     const [summaryCart, setSummaryCart] = React.useState(0);
+    const [priceCounter, setPriceCounter] = React.useState(0)
+
+    React.useEffect(() => {
+        setPriceCounter (() => 
+        {
+            if (cart.length) 
+            {
+                let acc = 0;
+                for (let i = 0; i < cart.length; i++) {
+                    acc = acc + cart[i].totalPrice
+                }
+                return acc
+             } else return 0})
+    }, [cart])
 
     const addToCart = (item) => {
         if (cart.find(e => e.id === item.id)) {
@@ -62,7 +76,7 @@ function CartPage () {
     return (
         <div className="container">
         <div className="cartPage section">
-            <h2 className="cartPage__title">Корзина</h2>
+            <h2 className="cartPage__title">Cart</h2>
             <div className="cartPage__plate">
             {
                 cart.map((item) => {
@@ -124,14 +138,20 @@ function CartPage () {
                 })
             }
             </div>
-            <div className="cartPage__Sum">
-                <p className="cartPage-sum__info">
-                </p>
-            </div>
+            {cart.length 
+                ?
+                    <div className="cartPage__Sum">
+                        <p className="cartPage-sum__title">Order price:</p>
+                        <p className="cartPage-sum__info">
+                            {priceCounter} $
+                        </p>
+                    </div>
+                : ''
+            }
 
             {
                 !cart.length ? 
-                    <h4 className="cartPage__text">Сейчас корзина пуста</h4>
+                    <h4 className="cartPage__text">Your cart is currently empty</h4>
                 : ''
             }
             

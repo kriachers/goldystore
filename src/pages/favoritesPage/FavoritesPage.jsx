@@ -18,7 +18,7 @@ function FavoritesPage() {
     return ( 
         <div className="section">
             <div className="container favoritesPage">
-                <h2 className="favoritesPage__title">Избранное</h2>
+                <h2 className="favoritesPage__title">Favorites</h2>
                 <Modal modalOpen={modalOpen} item={eyeData} setModalOpen={setModalOpen}></Modal>
                 
                 {   

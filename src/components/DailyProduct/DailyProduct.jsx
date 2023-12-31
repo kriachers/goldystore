@@ -435,7 +435,7 @@ function DailyProduct() {
         <div className="container">
         <section className="dailyProduct section container-bottom">
             <div className="dailyProduct__header">
-                    <h2 className="dailyProduct-header__title">Товар дня</h2>
+                    <h2 className="dailyProduct-header__title">Product of the day</h2>
                     <div className="dailyProduct-header__arrows">
                         <Arrow class={'arrow-left'}></Arrow>
                         <Arrow class={'arrow-right'}></Arrow>

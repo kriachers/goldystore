@@ -714,19 +714,19 @@ function Sale() {
 
         const categories =  [
             {
-                title: 'Кольца',
+                title: 'Rings',
                 category: 'fingerRing',
             },
             {
-                title: 'Серьги',
+                title: 'Earrings',
                 category: 'earring',
             },
             {
-                title: 'Браслеты',
+                title: 'Bracelets',
                 category: 'bracelet'
             },
             {
-                title: 'Часы',
+                title: 'Watch',
                 category: 'watch'
             }
         ]
@@ -743,7 +743,7 @@ function Sale() {
         <div className="container">
             <Modal modalOpen={modalOpen} item={eyeData} setModalOpen={setModalOpen}></Modal>
             <section className="sale section container-bottom">
-                <h2 className="sale__title">Распродажа</h2>
+                <h2 className="sale__title">Sale</h2>
 
                 <div className="sale__categories">
                     {

@@ -7,22 +7,22 @@ function Hero() {
 
     const heroData = [
         {
-            title: 'Cуперскидка до -60%',
-            descr: 'На бриллианты',
+            title: 'Discount up to -60%',
+            descr: 'On diamonds',
             img: './hero/ring.png',
             imgRetina: './hero/ring@2x.png',
             category: 'fingerRing'
         },
         {
-            title: 'Cуперскидка до -50%',
-            descr: 'На часы',
+            title: 'Discount up to -50%',
+            descr: 'On watches',
             img: './hero/watch.png',
             imgRetina: './hero/watch.png',
             category: 'watch'
         },
         {
-            title: 'Cуперскидка до -30%',
-            descr: 'На серьги',
+            title: 'Discount up to -30%',
+            descr: 'On earrings',
             img: './hero/earring.png',
             imgRetina: './hero/earring.png',
             category: 'earring'

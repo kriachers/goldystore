@@ -12,13 +12,13 @@ function Dropdown(props) {
 
         <div className="dropdown__nav">
             <ul className="dropdown-nav__menu">
-                <li className="dropdown-nav__item"><a href="#" className="dropdown-nav__link active">Каталог</a></li>
-                <li className="dropdown-nav__item"><a href="#" className="dropdown-nav__link">Акции</a></li>
-                <li className="dropdown-nav__item"><a href="#" className="dropdown-nav__link">Бренды</a></li>
-                <li className="dropdown-nav__item"><a href="#" className="dropdown-nav__link">Магазины</a></li>
-                <li className="dropdown-nav__item"><a href="#" className="dropdown-nav__link">О нас</a></li>
-                <li className="dropdown-nav__item"><a href="#" className="dropdown-nav__link">Доставка и оплата</a></li>
-                <li className="dropdown-nav__item"><a href="#" className="dropdown-nav__link">Статьи</a></li>
+                <li className="dropdown-nav__item"><a href="#" className="dropdown-nav__link active">Product Catalog</a></li>
+                <li className="dropdown-nav__item"><a href="#" className="dropdown-nav__link">Discounts</a></li>
+                <li className="dropdown-nav__item"><a href="#" className="dropdown-nav__link">Brands</a></li>
+                <li className="dropdown-nav__item"><a href="#" className="dropdown-nav__link">Stores</a></li>
+                <li className="dropdown-nav__item"><a href="#" className="dropdown-nav__link">About us</a></li>
+                <li className="dropdown-nav__item"><a href="#" className="dropdown-nav__link">Shipping and payment</a></li>
+                <li className="dropdown-nav__item"><a href="#" className="dropdown-nav__link">Articles</a></li>
             </ul>
         </div>
 

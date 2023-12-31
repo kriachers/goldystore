@@ -1,16 +1,23 @@
 import Sticker from '../Sticker'
 
-function Price(props) { 
+function Price({ actualPrice, currentPrice, priceClass  }) { 
     return (
 
-            <div className={`price ${props.class ? props.class : ''}`}>
+            <div className={`price ${priceClass || ''}`}>
                         <div className={`price__plate`}>
-                            <p className="price-plate__actual-price">{props.actualPrice} ₽</p>
-                            <p className="price-plate__prevous-price">{props.currentPrice} ₽</p>
+                        {actualPrice === currentPrice ? (
+                            <p className="price-plate__actual-price">{actualPrice} $</p>
+                        ) : (
+                            <>
+                                <p className="price-plate__actual-price">{actualPrice} $</p>
+                                <p className="price-plate__previous-price">{currentPrice} $</p>
+                            </>
+                        )}
+
                         </div>
                         {
-                            props.actualPrice !== props.currentPrice ?
-                            <Sticker class={'sale__sticker'} content={`-${Math.round(100 - (props.actualPrice/(props.currentPrice/100)))} %`}></Sticker>
+                            actualPrice !== currentPrice ?
+                            <Sticker class={'sale__sticker'} content={`-${Math.round(100 - (actualPrice/(currentPrice/100)))} %`}></Sticker>
                             : ''
                         }
                         

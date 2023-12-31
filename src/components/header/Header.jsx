@@ -3,18 +3,13 @@ import { Link } from "react-router-dom";
 import Dropdown from '../dropdown/Dropdown';
 import React from "react";
 import { AppContext } from "../../App";
+import City from "./city/City";
 
 function Header() {
     const {favorites, setFavorites, cart} = React.useContext(AppContext)
     const [openMenu, setOpenMenu] = useState(false)
     const [open, setOpen] = useState(false)
 
-    const [openCity, setOpenCity] = useState(false)
-    const [selectedCity, setSelectedCity] = useState(0)
-    const cities = ["Санкт-Петербург", "Москва", "Екатеринбург"]
-    const selectedCityName = cities[selectedCity]
-    const cityModalRef = React.useRef()
-    const cityModalOpenerRef = React.useRef()
     const [cartCounter, setCartCounter] = useState(0)
 
     React.useEffect(() => {
@@ -31,34 +26,6 @@ function Header() {
       }, [cart]);
 
 
-    const onClickListTtem = (index) => {
-        setSelectedCity(index);
-        setOpenCity(false)
-    }
-
-    React.useEffect(() => {
-        const clickHandleCitySide = (event) => {
-            let pathModal = event.composedPath().includes(cityModalRef.current);
-            let pathModalOpener = event.composedPath().includes(cityModalOpenerRef.current);
-            if (!pathModal && !pathModalOpener) {
-                setOpenCity(false);
-        }
-    }
-    document.body.addEventListener('click', clickHandleCitySide)
-    return () => {
-        document.body.removeEventListener('click', clickHandleCitySide)
-    }
-        
-    }, [])
-
-    
-
-
-
-
-
-    
-
     return (
         <div className="container">
         <header className="header section">
@@ -72,26 +39,7 @@ function Header() {
             </div>
 
             <div className="header__contact">
-                <div className="header-contact__city">
-                    <div  ref={cityModalOpenerRef} className="header-contact-city__wrapper" onClick={() => {setOpenCity(!openCity)}}>
-                        <img src="./icons/tooltip.svg" alt="" className="header-city__img" />
-                        <p className="header-text header-city__text">{selectedCityName}</p>
-                        <img src="./icons/small-arrow.svg" alt="" className="header-city__subarrow" />
-                    </div>
-                    <div ref={cityModalRef} className={`header-city__modal ${openCity ? 'open' : ''}`}>
-                        <ul className="header-city-modal__list">
-                            {cities.map((item, index) => {
-                                return (
-                                    <li 
-                                    onClick={() => onClickListTtem(index)}
-                                    className={`header-modal-list__item ${selectedCity === index ? 'active' : ""}`}>
-                                    {item}
-                                    </li>
-                                )
-                            })}
-                        </ul>
-                    </div>
-                </div>
+                <City></City>
                 <div className="header-contact__phone">
                     <img src="./icons/phone.svg" alt="" className="header-phone__img" />
                     <a href="tel:+78007852535" className="header-text header-phone__text">8 800 785-25-35</a>
@@ -102,9 +50,9 @@ function Header() {
             </Link>
             <div className="header__personal">
                 <div className="header-presonal__login">
-                    <p className="header-login__descr">Вход</p>
+                    <p className="header-login__descr">Login</p>
                     <span className="header-login__line"></span>
-                    <p className="header-login__descr">Регистрация</p>
+                    <p className="header-login__descr">Registration</p>
                 </div>
 
                 <div className="header-personal__icons">
@@ -123,7 +71,7 @@ function Header() {
                     </div>
                     <div>
                         <Link to="/cart">
-                            <div className="header__icons-favorites">
+                            <div className="header__icons-favorites header__icons-favorites--cart">
                             <img src="./icons/bag.svg" alt="" className="header-icons__pic" />
                             <div className="header-favorites-sticker__wrapper">
                                 <div className="header-favorites__sticker">
@@ -140,13 +88,13 @@ function Header() {
 
         <nav className="header__nav">
             <ul className="header-nav__menu">
-                <li className="header-nav__item"><a href="#" className="header-nav__link active">Каталог</a></li>
-                <li className="header-nav__item"><a href="#" className="header-nav__link">Акции</a></li>
-                <li className="header-nav__item"><a href="#" className="header-nav__link">Бренды</a></li>
-                <li className="header-nav__item"><a href="#" className="header-nav__link">Магазины</a></li>
-                <li className="header-nav__item"><a href="#" className="header-nav__link">О нас</a></li>
-                <li className="header-nav__item"><a href="#" className="header-nav__link">Доставка и оплата</a></li>
-                <li className="header-nav__item"><a href="#" className="header-nav__link">Статьи</a></li>
+                <li className="header-nav__item"><a href="#" className="header-nav__link active">Product Catalog</a></li>
+                <li className="header-nav__item"><a href="#" className="header-nav__link">Discounts</a></li>
+                <li className="header-nav__item"><a href="#" className="header-nav__link">Brands</a></li>
+                <li className="header-nav__item"><a href="#" className="header-nav__link">Stores</a></li>
+                <li className="header-nav__item"><a href="#" className="header-nav__link">About us</a></li>
+                <li className="header-nav__item"><a href="#" className="header-nav__link">Shipping and payment</a></li>
+                <li className="header-nav__item"><a href="#" className="header-nav__link">Articles</a></li>
             </ul>
             <img onClick={() => setOpen(!open)} src="./icons/search.svg" alt="" className="header-hidden-search" />
             <form action="" className={`header-nav__search ${open ? 'open' : ''}`} >

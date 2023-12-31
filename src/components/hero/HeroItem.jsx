@@ -15,7 +15,7 @@ function HeroItem(props) {
             <Link to="/promo">
             <button 
             className="solid-button"
-            onClick={() => setBannerInfo(props.item)}>Подробнее</button>
+            onClick={() => setBannerInfo(props.item)}>More details</button>
             </Link>
             {/* <Button text={'Подробнее'} class={'solid-button'}> </Button> */}
         </div>
