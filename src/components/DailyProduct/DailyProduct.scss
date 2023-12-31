@@ -118,13 +118,23 @@
 }
 
 .dailyProduct__button {
-    width: 100%;
+    flex: 7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px #8F8F8F solid;
+}
+
+.dailyProduct__button:hover {
+    border: 1px #303030 solid;
 }
 
 .dailyProduct__count-button {
-    flex-basis: 30%;
-    flex-shrink: 0;
     padding: 8px;
+    flex: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .dailyProduct-size__info {
@@ -180,13 +190,9 @@
 
 .dailyProduct-item__numbers {
     padding-bottom: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     border-bottom: 1px solid #F0F0F0;
 }
-
-
-
-
 
 .dailyProduct-sizes {
     display: flex;
@@ -287,7 +293,10 @@
 .dailyProduct-info__buttons {
     display: flex;
     margin-bottom: 10px;
+    width: 100%;
+    cursor: pointer;
 }
+
 
 @media (max-width: 1200px) {
     .dailyProduct__info {

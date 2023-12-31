@@ -77,7 +77,7 @@ function Item(props) {
                         <p className="dailyProduct-item__vendorcode">{`Product code: ${item.articule}`}</p>
                         <div className="dailyProduct-item__numbers"> 
                         <Price 
-                            priceClass ={'dailyProduct-item-numbers__price'} 
+                            priceClass={'dailyProduct-item-numbers__price'} 
                             actualPrice={item.actualPrice} 
                             currentPrice={item.currentPrice}>
                         </Price>
@@ -138,7 +138,7 @@ function Item(props) {
                         </form>
                         <div className="dailyProduct__info">
                                 <div className="dailyProduct-info__buttons">
-                                    <button 
+                                    <div 
                                     className={`
                                     ${cart.find(e => e.id === item.id) ? 'outline-button' : 'solid-button'}
                                     dailyProduct__button`}
@@ -147,13 +147,13 @@ function Item(props) {
                                         {cart.find(e => e.id === item.id) 
                                         ? `In cart ${cart.find(e => e.id === item.id).count} items` 
                                         : 'Add to cart'}
-                                    </button>
+                                    </div>
                                     {cart.find(e => e.id === item.id) 
-                                    ? <button
+                                    ? <div
                                     onClick={() => addToCart(item)}
                                     className="dailyProduct__count-button solid-button">
                                         +1 шт.
-                                    </button>
+                                    </div>
                                    : '' }
                                 </div>
                                 <div className="dailyProduct-info__plate">

@@ -3,7 +3,7 @@ import Sticker from '../Sticker'
 function Price({ actualPrice, currentPrice, priceClass  }) { 
     return (
 
-            <div className={`price ${priceClass || ''}`}>
+            <div className={`price ${priceClass ? priceClass : ''}`}>
                         <div className={`price__plate`}>
                         {actualPrice === currentPrice ? (
                             <p className="price-plate__actual-price">{actualPrice} $</p>
